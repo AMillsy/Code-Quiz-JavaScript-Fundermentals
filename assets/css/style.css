@@ -27,18 +27,8 @@ header {
 }
 
 h1 {
+  font-size: 40px;
   margin: 2rem;
-}
-
-.hidden {
-  display: none;
-}
-
-li {
-  margin: 2rem 4rem;
-}
-
-li:hover {
 }
 
 #feedback {
@@ -77,4 +67,15 @@ li:hover {
   position: absolute;
   bottom: 0;
   margin: 2rem;
+}
+
+/*QUESTIONS/////////////////////*/
+
+li {
+  margin: 2rem 4rem;
+  font-size: 25px;
+}
+
+.hidden {
+  display: none;
 }
