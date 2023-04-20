@@ -2,14 +2,19 @@ const startBtn = document.querySelector(`.start`);
 const welcomeSect = document.querySelector(`#welcome`);
 const questionSect = document.querySelector(`#questions`);
 const timerEl = document.querySelector(`#timer`);
+const answersEl = document.querySelector(`#choices`);
 let timer;
 let time = 0;
+let currentQuestion = 0;
+
+//Start Game
 startBtn.addEventListener(`click`, function (e) {
   time = 20;
   timerEl.textContent = setTimerVisuals();
   welcomeSect.style.display = `none`;
   questionSect.classList.remove(`hidden`);
 
+  addQuestions();
   timer = setInterval(startTimer, 1000);
 });
 
@@ -20,7 +25,7 @@ function startTimer() {
 
   if (time === 0) {
     clearInterval(timer);
-    //ENTER NEXT SCREEN
+    endGame();
   }
 }
 
@@ -33,4 +38,16 @@ function setTimerVisuals() {
 
 function endGame() {
   /**Take the user to a new screen and ends the game */
+}
+
+//Question functions
+
+function addQuestions() {
+  question = questions[currentQuestion];
+
+  for (const choice of question.choices) {
+    const questionElement = `<li class="button">${choice}</li>`;
+
+    answersEl.insertAdjacentHTML(`afterbegin`, questionElement);
+  }
 }
