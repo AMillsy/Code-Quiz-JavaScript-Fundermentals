@@ -79,3 +79,16 @@ li {
 .hidden {
   display: none;
 }
+
+#feedback {
+  margin-bottom: 1rem;
+}
+
+/*Highscore Input ///////////////*/
+
+label {
+  padding-top: 1rem;
+}
+input {
+  margin-top: 1rem;
+}

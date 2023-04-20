@@ -5,6 +5,7 @@ const questionSect = document.querySelector(`#questions`);
 const timerEl = document.querySelector(`#timer`);
 const titleEL = document.querySelector(`#title`);
 const feedbackEl = document.querySelector(`#feedback`);
+const highscoreEl = document.querySelector(`#highscores`);
 
 let timer;
 let time = 0;
@@ -12,7 +13,7 @@ let currentQuestion = 0;
 
 //Start Game
 startBtn.addEventListener(`click`, function (e) {
-  time = 20;
+  time = 75;
   timerEl.textContent = setTimerVisuals();
   welcomeSect.style.display = `none`;
   questionSect.classList.remove(`hidden`);
@@ -40,6 +41,7 @@ function setTimerVisuals() {
 }
 
 function endGame() {
+  highscoreScreen();
   /**Take the user to a new screen and ends the game */
 }
 
@@ -62,13 +64,16 @@ choiceEl.addEventListener(`click`, function (e) {
 
 /**Adds the questions to the screen */
 function addQuestions() {
+  console.log();
   if (currentQuestion >= questions.length) highscoreScreen();
-  choiceEl.innerHTML = "";
-  const question = questions[currentQuestion];
-  titleEL.textContent = question.title;
-  for (const choice of question.choices) {
-    const questionElement = `<li class="button">${choice}</li>`;
-    choiceEl.insertAdjacentHTML(`afterbegin`, questionElement);
+  else {
+    choiceEl.innerHTML = "";
+    const question = questions[currentQuestion];
+    titleEL.textContent = question.title;
+    for (const choice of question.choices) {
+      const questionElement = `<li class="button">${choice}</li>`;
+      choiceEl.insertAdjacentHTML(`afterbegin`, questionElement);
+    }
   }
 }
 
@@ -89,4 +94,7 @@ function answerCorrectly(gotCorrect) {
 
 function highscoreScreen() {
   /**Shows the next screen */
+  clearInterval(timer);
+  questionSect.classList.add(`hidden`);
+  highscoreEl.classList.remove(`hidden`);
 }
