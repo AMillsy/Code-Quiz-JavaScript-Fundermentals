@@ -1,8 +1,10 @@
 const startBtn = document.querySelector(`.start`);
+const choiceEl = document.querySelector(`#choices`);
 const welcomeSect = document.querySelector(`#welcome`);
 const questionSect = document.querySelector(`#questions`);
 const timerEl = document.querySelector(`#timer`);
-const answersEl = document.querySelector(`#choices`);
+const titleEL = document.querySelector(`#title`);
+
 let timer;
 let time = 0;
 let currentQuestion = 0;
@@ -41,13 +43,31 @@ function endGame() {
 }
 
 //Question functions
+choiceEl.addEventListener(`click`, function (e) {
+  if (!e.target.matches(`.button`)) return;
+  console.log(e.target);
+  questionAns = questions[currentQuestion].answer;
+  if (e.target.textContent === questionAns) {
+  }
 
+  currentQuestion++;
+  addQuestions();
+});
 function addQuestions() {
-  question = questions[currentQuestion];
-
+  if (currentQuestion >= questions.length) highscoreScreen();
+  choiceEl.innerHTML = "";
+  const question = questions[currentQuestion];
+  titleEL.textContent = question.title;
   for (const choice of question.choices) {
     const questionElement = `<li class="button">${choice}</li>`;
-
-    answersEl.insertAdjacentHTML(`afterbegin`, questionElement);
+    choiceEl.insertAdjacentHTML(`afterbegin`, questionElement);
   }
+}
+
+function showMessage(msg) {
+  /**Shows a message that will tell the user if they got the answer right or wrong */
+}
+
+function highscoreScreen() {
+  /**Shows the next screen */
 }
