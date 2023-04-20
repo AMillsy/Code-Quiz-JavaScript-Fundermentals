@@ -4,6 +4,7 @@ const welcomeSect = document.querySelector(`#welcome`);
 const questionSect = document.querySelector(`#questions`);
 const timerEl = document.querySelector(`#timer`);
 const titleEL = document.querySelector(`#title`);
+const feedbackEl = document.querySelector(`#feedback`);
 
 let timer;
 let time = 0;
@@ -48,11 +49,18 @@ choiceEl.addEventListener(`click`, function (e) {
   console.log(e.target);
   questionAns = questions[currentQuestion].answer;
   if (e.target.textContent === questionAns) {
+    console.log(`Question is correct`);
+    answerCorrectly(true);
+  } else {
+    console.log(`Question is wrong`);
+    answerCorrectly(false);
   }
 
   currentQuestion++;
   addQuestions();
 });
+
+/**Adds the questions to the screen */
 function addQuestions() {
   if (currentQuestion >= questions.length) highscoreScreen();
   choiceEl.innerHTML = "";
@@ -64,8 +72,19 @@ function addQuestions() {
   }
 }
 
-function showMessage(msg) {
-  /**Shows a message that will tell the user if they got the answer right or wrong */
+/**Shows a message that will tell the user if they got the answer right or wrong */
+function answerCorrectly(gotCorrect) {
+  feedbackEl.classList.remove(`hidden`);
+  if (gotCorrect) {
+    feedbackEl.style.color = `green`;
+    feedbackEl.textContent = `Correct!`;
+  } else {
+    feedbackEl.style.color = `red`;
+    feedbackEl.textContent = `Wrong`;
+  }
+  setTimeout(function () {
+    feedbackEl.classList.add(`hidden`);
+  }, 1000);
 }
 
 function highscoreScreen() {
