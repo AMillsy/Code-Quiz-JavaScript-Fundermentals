@@ -102,9 +102,13 @@ input {
   margin-top: 1rem;
 }
 
-.restart {
+.submit {
   font-size: 100%;
   margin: 1rem;
+}
+
+.error-message {
+  color: red;
 }
 
 /*Highscore section//////////////////////*/

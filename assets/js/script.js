@@ -1,4 +1,5 @@
 const startBtn = document.querySelector(`.start`);
+const submitBtn = document.querySelector(`.submit`);
 const choiceEl = document.querySelector(`#choices`);
 const welcomeSect = document.querySelector(`#welcome`);
 const questionSect = document.querySelector(`#questions`);
@@ -7,6 +8,9 @@ const titleEL = document.querySelector(`#title`);
 const feedbackEl = document.querySelector(`#feedback`);
 const highscoreEl = document.querySelector(`#highscores-submit`);
 const scoreEl = document.querySelector(`#score`);
+const nameInputEL = document.querySelector(`input`);
+const errorMessageEl = document.querySelector(`.error-message`);
+const highscoreTitleEl = document.querySelector(`.highscore-title`);
 
 let timer;
 let time = 0;
@@ -110,4 +114,25 @@ function showSection(sect, shouldShow = true) {
   else sect.style.display = `none`;
 }
 
-function highscoreSection() {}
+function highscoreSection() {
+  Object.keys(localStorage).forEach(function (key) {
+    if (key === `debug`) return;
+    const score = localStorage.getItem(key);
+  });
+}
+
+/**Submit button Handler */
+
+submitBtn.addEventListener(`click`, function () {
+  const name = nameInputEL.value;
+  console.log(name);
+  if (!name) {
+    errorMessageEl.textContent = `Please enter in your initials`;
+  } else {
+    errorMessageEl.textContent = ``;
+    localStorage.setItem(name, score);
+    highscoreSection();
+  }
+});
+
+highscoreSection();
