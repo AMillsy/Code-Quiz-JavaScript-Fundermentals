@@ -87,7 +87,7 @@ li {
 }
 
 /*Highscore Input ///////////////*/
-#highscores {
+#highscores-submit {
   display: none;
   flex-direction: column;
   position: relative;
@@ -107,10 +107,23 @@ input {
   margin: 1rem;
 }
 
-.show {
+/*Highscore section//////////////////////*/
+#highscores {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.score {
+  margin: 1rem;
   display: flex;
 }
-
+h3 {
+  margin-right: 2rem;
+}
+.player-name {
+}
+.player-score {
+}
 /*EXCEPTION IN WELCOME SECTION*/
 .rules {
   list-style-type: disc;

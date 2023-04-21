@@ -5,7 +5,7 @@ const questionSect = document.querySelector(`#questions`);
 const timerEl = document.querySelector(`#timer`);
 const titleEL = document.querySelector(`#title`);
 const feedbackEl = document.querySelector(`#feedback`);
-const highscoreEl = document.querySelector(`#highscores`);
+const highscoreEl = document.querySelector(`#highscores-submit`);
 const scoreEl = document.querySelector(`#score`);
 
 let timer;
@@ -68,7 +68,7 @@ choiceEl.addEventListener(`click`, function (e) {
 /**Adds the questions to the screen */
 function addQuestions() {
   console.log();
-  if (currentQuestion >= questions.length) highscoreScreen();
+  if (currentQuestion >= questions.length) highscoreSubmitScreen();
   else {
     choiceEl.innerHTML = "";
     const question = questions[currentQuestion];
@@ -95,7 +95,7 @@ function answerCorrectly(gotCorrect) {
   }, 1000);
 }
 
-function highscoreScreen() {
+function highscoreSubmitScreen() {
   /**Shows the next screen */
   clearInterval(timer);
   score = time;
@@ -109,3 +109,5 @@ function showSection(sect, shouldShow = true) {
   if (shouldShow) sect.style.display = `flex`;
   else sect.style.display = `none`;
 }
+
+function highscoreSection() {}
