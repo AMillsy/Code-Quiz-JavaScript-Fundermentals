@@ -12,7 +12,7 @@ const highscoreEl = document.querySelector(`#highscores`);
 const scoreEl = document.querySelector(`#score`);
 const nameInputEL = document.querySelector(`input`);
 const errorMessageEl = document.querySelector(`.error-message`);
-const highscoreTitleEl = document.querySelector(`.highscore-title`);
+const highscoreTitleEl = document.querySelector(`.highscore-container`);
 
 let timer;
 let time = 0;
@@ -161,4 +161,7 @@ submitBtn.addEventListener(`click`, function () {
   }
 });
 
-highscoreBtn.addEventListener(`click`, highscoreSection);
+highscoreBtn.addEventListener(`click`, function () {
+  highscoreTitleEl.innerHTML = ``;
+  highscoreSection();
+});
