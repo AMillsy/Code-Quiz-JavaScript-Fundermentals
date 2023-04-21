@@ -19,6 +19,7 @@ header {
   height: 500px;
   box-shadow: 5px 5px #888;
   border-radius: 1rem;
+  border: 2px solid black;
 }
 
 .quiz {
@@ -102,10 +103,8 @@ input {
 }
 
 .restart {
-  font-size: 20px;
-  position: absolute;
-  bottom: 0;
-  margin: 2rem;
+  font-size: 100%;
+  margin: 1rem;
 }
 
 .show {
