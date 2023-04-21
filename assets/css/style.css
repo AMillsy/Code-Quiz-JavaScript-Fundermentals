@@ -6,6 +6,9 @@
 }
 
 /*GENERAL PARAMETERS*/
+body {
+  overflow-y: hidden;
+}
 header {
   display: flex;
   justify-content: space-between;
