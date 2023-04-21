@@ -6,16 +6,18 @@ const timerEl = document.querySelector(`#timer`);
 const titleEL = document.querySelector(`#title`);
 const feedbackEl = document.querySelector(`#feedback`);
 const highscoreEl = document.querySelector(`#highscores`);
+const scoreEl = document.querySelector(`#score`);
 
 let timer;
 let time = 0;
 let currentQuestion = 0;
+let score = 0;
 
 //Start Game
 startBtn.addEventListener(`click`, function (e) {
   time = 75;
   timerEl.textContent = setTimerVisuals();
-  welcomeSect.style.display = `none`;
+  showSection(welcomeSect, false);
   questionSect.classList.remove(`hidden`);
 
   addQuestions();
@@ -56,6 +58,7 @@ choiceEl.addEventListener(`click`, function (e) {
   } else {
     console.log(`Question is wrong`);
     answerCorrectly(false);
+    time -= 15;
   }
 
   currentQuestion++;
@@ -95,6 +98,14 @@ function answerCorrectly(gotCorrect) {
 function highscoreScreen() {
   /**Shows the next screen */
   clearInterval(timer);
+  score = time;
+  scoreEl.textContent = `Your score: ${score}`;
   questionSect.classList.add(`hidden`);
-  highscoreEl.classList.remove(`hidden`);
+  showSection(highscoreEl);
+}
+
+//Function to pick if the section should show or not.
+function showSection(sect, shouldShow = true) {
+  if (shouldShow) sect.style.display = `flex`;
+  else sect.style.display = `none`;
 }

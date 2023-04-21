@@ -15,7 +15,7 @@
     </header>
     <div class="quiz">
       <section class="quiz-container">
-        <section class="show" id="welcome">
+        <section  id="welcome">
           <h1>Welcome to the quiz</h1>
           <p>You will have 60 seconds to answer all the questions</p>
           <p>
@@ -31,11 +31,14 @@
           <ul id="choices"></ul>
           <div class="hidden" id="feedback">Wrong</div>
         </section>
-        <section class ="hidden" id="highscores">
+        <section class ="" id="highscores">
           <h1>Congrats</h1>
-          <p>Your score was:</p>
+          <p id="score">Your score was:</p>
+          <div>
           <label>Your Initials:</label>
-          <input type="text" ></input>
+          <input type="text" ></input><br>
+          </div>
+          <button class="button restart">Restart Game</button>
         </section>
       </section>
     </div>
