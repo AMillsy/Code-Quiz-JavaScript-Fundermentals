@@ -115,17 +115,31 @@ function showSection(sect, shouldShow = true) {
 }
 
 function highscoreSection() {
+  const orderedScores = [];
+  //Order all the scores
   Object.keys(localStorage).forEach(function (key) {
-    if (key === `debug`) return;
-    const score = localStorage.getItem(key);
+    if (!(key === `debug`)) {
+      const score = localStorage.getItem(key);
+      orderedScores.push([key, score]);
+      orderedScores.sort(function (a, b) {
+        const [_, score1] = a;
+        const [__, score2] = b;
+        return score2 - score1;
+      });
+    }
+  });
+
+  //Put them onto screen
+  for (const [name, score] of orderedScores) {
     const scoresHTML = `
       <div class="score">
-        <h3 class="player-name">${key}:</h3>
+        <h3 class="player-name">${name}:</h3>
         <p class="player-score">${score}</p>
       </div>
     `;
     highscoreTitleEl.insertAdjacentHTML(`beforeend`, scoresHTML);
-  });
+  }
+  console.log(orderedScores);
 }
 
 /**Submit button Handler */
