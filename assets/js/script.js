@@ -42,7 +42,7 @@ function setTimerVisuals() {
 /*When the game ends, takes the user to the highscore
 submitting section*/
 function endGame() {
-  highscoreScreen();
+  highscoreSubmitScreen();
 }
 
 /**Adds the questions to the screen */
