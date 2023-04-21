@@ -7,7 +7,7 @@
 
 /*GENERAL PARAMETERS*/
 body {
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 header {
   display: flex;
@@ -82,13 +82,16 @@ li {
   margin: 2rem 4rem;
   font-size: 150%;
 }
-
+.feedback-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
 #feedback {
   display: none;
   margin: auto;
   position: absolute;
   bottom: 10px;
-  align-self: center;
 }
 
 /*Highscore Input ///////////////*/
