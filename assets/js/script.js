@@ -162,6 +162,6 @@ submitBtn.addEventListener(`click`, function () {
 });
 
 highscoreBtn.addEventListener(`click`, function () {
-  highscoreTitleEl.innerHTML = ``;
+  // highscoreTitleEl.innerHTML = ``;
   highscoreSection();
 });
