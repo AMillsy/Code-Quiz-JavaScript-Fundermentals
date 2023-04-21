@@ -6,7 +6,8 @@ const questionSect = document.querySelector(`#questions`);
 const timerEl = document.querySelector(`#timer`);
 const titleEL = document.querySelector(`#title`);
 const feedbackEl = document.querySelector(`#feedback`);
-const highscoreEl = document.querySelector(`#highscores-submit`);
+const highscoreSubmitEl = document.querySelector(`#highscores-submit`);
+const highscoreEl = document.querySelector(`#highscores`);
 const scoreEl = document.querySelector(`#score`);
 const nameInputEL = document.querySelector(`input`);
 const errorMessageEl = document.querySelector(`.error-message`);
@@ -105,7 +106,7 @@ function highscoreSubmitScreen() {
   score = time;
   scoreEl.textContent = `Your score: ${score}`;
   questionSect.classList.add(`hidden`);
-  showSection(highscoreEl);
+  showSection(highscoreSubmitEl);
 }
 
 //Function to pick if the section should show or not.
@@ -139,7 +140,8 @@ function highscoreSection() {
     `;
     highscoreTitleEl.insertAdjacentHTML(`beforeend`, scoresHTML);
   }
-  console.log(orderedScores);
+  showSection(highscoreSubmitEl, false);
+  showSection(highscoreEl, true);
 }
 
 /**Submit button Handler */
@@ -155,5 +157,3 @@ submitBtn.addEventListener(`click`, function () {
     highscoreSection();
   }
 });
-
-highscoreSection();
