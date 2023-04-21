@@ -2,7 +2,7 @@
 
 ## GitPage
 
-[Link to page](#)
+[Link to page](https://amillsy.github.io/Code-Quiz-JavaScript-Fundermentals/)
 
 ## User Story
 
