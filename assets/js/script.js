@@ -103,12 +103,12 @@ function highscoreSection() {
     if (!(key === `debug`)) {
       const score = localStorage.getItem(key);
       orderedScores.push([key, score]);
-      orderedScores.sort(function (a, b) {
-        const [_, score1] = a;
-        const [__, score2] = b;
-        return score2 - score1;
-      });
     }
+    orderedScores.sort(function (a, b) {
+      const [_, score1] = a;
+      const [__, score2] = b;
+      return score2 - score1;
+    });
   });
 
   //Put them onto screen
