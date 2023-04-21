@@ -1,6 +1,7 @@
 const startBtn = document.querySelector(`.start`);
 const highscoreBtn = document.querySelector(`.highscore-btn`);
 const submitBtn = document.querySelector(`.submit`);
+const returnBtn = document.querySelector(`.return`);
 const choiceEl = document.querySelector(`#choices`);
 const welcomeSect = document.querySelector(`#welcome`);
 const questionSect = document.querySelector(`#questions`);
@@ -136,7 +137,7 @@ function highscoreSection() {
   for (const [name, score] of orderedScores) {
     const scoresHTML = `
       <div class="score">
-        <h3 class="player-name">${name}:</h3>
+        <h3 class="player-name">${name.toUpperCase()}:</h3>
         <p class="player-score">${score}</p>
       </div>
     `;
@@ -162,6 +163,11 @@ submitBtn.addEventListener(`click`, function () {
 });
 
 highscoreBtn.addEventListener(`click`, function () {
-  // highscoreTitleEl.innerHTML = ``;
+  highscoreTitleEl.innerHTML = ``;
   highscoreSection();
+});
+
+returnBtn.addEventListener(`click`, function () {
+  showSection(highscoreEl, false);
+  showSection(welcomeSect, true);
 });

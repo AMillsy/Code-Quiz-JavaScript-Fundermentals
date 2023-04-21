@@ -1,8 +1,8 @@
 :root {
   --primary-colour: #2274a5;
   --secondary-colour: #888;
-  --button-colour: #2274a5;
-  --button-hover: lightblue;
+  --button-colour: #e83f6f;
+  --button-hover: #c55776;
 }
 
 /*GENERAL PARAMETERS*/
@@ -109,6 +109,7 @@ input {
 
 /*Highscore section//////////////////////*/
 #highscores {
+  position: relative;
   display: none;
   align-items: center;
   flex-direction: column;
@@ -140,6 +141,13 @@ input {
 }
 .player-score {
   font-size: 150%;
+}
+
+.return {
+  font-size: 150%;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 /*EXCEPTION IN WELCOME SECTION*/
