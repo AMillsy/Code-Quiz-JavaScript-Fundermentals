@@ -166,6 +166,7 @@ input {
 .rules {
   list-style-type: disc;
   text-align: left;
+  line-height: 1rem;
 }
 .item-exception {
   list-style-type: none;
