@@ -118,15 +118,21 @@ input {
   flex-direction: column;
 }
 .score {
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
+  justify-content: start;
+  align-items: start;
 }
 h3 {
   margin-right: 2rem;
 }
 .player-name {
+  font-size: 60%;
+  margin-right: 5px;
 }
 .player-score {
+  font-size: 60%;
 }
 /*EXCEPTION IN WELCOME SECTION*/
 .rules {

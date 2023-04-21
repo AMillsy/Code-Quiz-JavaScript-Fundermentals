@@ -118,6 +118,13 @@ function highscoreSection() {
   Object.keys(localStorage).forEach(function (key) {
     if (key === `debug`) return;
     const score = localStorage.getItem(key);
+    const scoresHTML = `
+      <div class="score">
+        <h3 class="player-name">${key}:</h3>
+        <p class="player-score">${score}</p>
+      </div>
+    `;
+    highscoreTitleEl.insertAdjacentHTML(`beforeend`, scoresHTML);
   });
 }
 
