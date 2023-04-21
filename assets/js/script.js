@@ -1,4 +1,5 @@
 const startBtn = document.querySelector(`.start`);
+const highscoreBtn = document.querySelector(`.highscore-btn`);
 const submitBtn = document.querySelector(`.submit`);
 const choiceEl = document.querySelector(`#choices`);
 const welcomeSect = document.querySelector(`#welcome`);
@@ -115,6 +116,7 @@ function showSection(sect, shouldShow = true) {
   else sect.style.display = `none`;
 }
 
+//Sorts the score by desending order and then displays to the screen
 function highscoreSection() {
   const orderedScores = [];
   //Order all the scores
@@ -140,6 +142,7 @@ function highscoreSection() {
     `;
     highscoreTitleEl.insertAdjacentHTML(`beforeend`, scoresHTML);
   }
+  showSection(welcomeSect, false);
   showSection(highscoreSubmitEl, false);
   showSection(highscoreEl, true);
 }
@@ -157,3 +160,5 @@ submitBtn.addEventListener(`click`, function () {
     highscoreSection();
   }
 });
+
+highscoreBtn.addEventListener(`click`, highscoreSection);

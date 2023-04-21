@@ -117,6 +117,9 @@ input {
   align-items: center;
   flex-direction: column;
 }
+.highscore-title {
+  margin-bottom: 20px;
+}
 .score {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -134,6 +137,7 @@ h3 {
 .player-score {
   font-size: 60%;
 }
+
 /*EXCEPTION IN WELCOME SECTION*/
 .rules {
   list-style-type: disc;
