@@ -24,12 +24,12 @@ let score = 0;
 //Timer function, start a timer when it hits 0, the game ends
 function startTimer() {
   time--;
-  timerEl.textContent = setTimerVisuals();
-
   if (time <= 0) {
+    time = 0;
     clearInterval(timer);
     endGame();
   }
+  timerEl.textContent = setTimerVisuals();
 }
 
 //Sets the visuals for the timer to 00:00 format
@@ -62,7 +62,7 @@ function addQuestions() {
 
 /**Shows a message that will tell the user if they got the answer right or wrong */
 function answerCorrectly(gotCorrect) {
-  feedbackEl.classList.remove(`hidden`);
+  showSection(feedbackEl, true);
   if (gotCorrect) {
     feedbackEl.style.color = `green`;
     feedbackEl.textContent = `Correct!`;
@@ -71,7 +71,7 @@ function answerCorrectly(gotCorrect) {
     feedbackEl.textContent = `Wrong`;
   }
   setTimeout(function () {
-    feedbackEl.classList.add(`hidden`);
+    showSection(feedbackEl, false);
   }, 1000);
 }
 
@@ -81,7 +81,7 @@ function highscoreSubmitScreen() {
   clearInterval(timer);
   score = time;
   scoreEl.textContent = `Your score: ${score}`;
-  questionSect.classList.add(`hidden`);
+  showSection(questionSect, false);
   showSection(highscoreSubmitEl);
 }
 
@@ -119,7 +119,7 @@ function highscoreSection() {
     `;
     highscoreTitleEl.insertAdjacentHTML(`beforeend`, scoresHTML);
   }
-  questionSect.classList.add(`hidden`);
+  showSection(questionSect, false);
   showSection(welcomeSect, false);
   showSection(highscoreSubmitEl, false);
   showSection(highscoreEl, true);
@@ -129,11 +129,11 @@ function highscoreSection() {
 
 //Start Game
 startBtn.addEventListener(`click`, function (e) {
-  time = 10;
+  time = 75;
   timerEl.textContent = setTimerVisuals();
   showSection(welcomeSect, false);
   showSection(highscoreEl, false);
-  questionSect.classList.remove(`hidden`);
+  showSection(questionSect, true);
 
   addQuestions();
   timer = setInterval(startTimer, 1000);
