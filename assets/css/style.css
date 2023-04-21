@@ -12,7 +12,7 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 2rem;
+  padding: 2rem;
 }
 
 .quiz-container {

@@ -80,6 +80,7 @@ function answerCorrectly(gotCorrect) {
 //Shows the submit section and asks the user to put in there initials
 function highscoreSubmitScreen() {
   /**Shows the next screen */
+  nameInputEL.value = ``;
   clearInterval(timer);
   score = time;
   scoreEl.textContent = `Your score: ${score}`;
