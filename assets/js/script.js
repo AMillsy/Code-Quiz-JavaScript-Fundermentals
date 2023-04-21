@@ -20,6 +20,7 @@ let timer;
 let time = 0;
 let currentQuestion = 0;
 let score = 0;
+let timeout;
 
 //Timer function, start a timer when it hits 0, the game ends
 function startTimer() {
@@ -62,6 +63,7 @@ function addQuestions() {
 
 /**Shows a message that will tell the user if they got the answer right or wrong */
 function answerCorrectly(gotCorrect) {
+  clearTimeout(timeout);
   showSection(feedbackEl, true);
   if (gotCorrect) {
     feedbackEl.style.color = `green`;
@@ -70,7 +72,7 @@ function answerCorrectly(gotCorrect) {
     feedbackEl.style.color = `red`;
     feedbackEl.textContent = `Wrong`;
   }
-  setTimeout(function () {
+  timeout = setTimeout(function () {
     showSection(feedbackEl, false);
   }, 1000);
 }
