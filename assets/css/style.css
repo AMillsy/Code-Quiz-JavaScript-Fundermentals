@@ -75,7 +75,7 @@ h1 {
 
 li {
   margin: 2rem 4rem;
-  font-size: 25px;
+  font-size: 150%;
 }
 
 .hidden {
@@ -109,4 +109,14 @@ input {
 
 .show {
   display: flex;
+}
+
+/*EXCEPTION IN WELCOME SECTION*/
+.rules {
+  list-style-type: disc;
+  text-align: left;
+}
+.item-exception {
+  list-style-type: none;
+  margin: 0;
 }
