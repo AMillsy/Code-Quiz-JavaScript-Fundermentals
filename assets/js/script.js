@@ -162,12 +162,15 @@ choiceEl.addEventListener(`click`, function (e) {
 
 //Submit name and score handler
 submitBtn.addEventListener(`click`, function () {
-  const name = nameInputEL.value;
-  console.log(name);
+  let name = nameInputEL.value;
   if (!name) {
     errorMessageEl.textContent = `Please enter in your initials`;
   } else {
     errorMessageEl.textContent = ``;
+
+    if(name.length > 4){
+      name = name.slice(0,4);
+    }
     localStorage.setItem(name, score);
     highscoreSection();
   }
