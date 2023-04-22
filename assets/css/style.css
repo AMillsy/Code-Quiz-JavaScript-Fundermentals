@@ -90,6 +90,7 @@ li {
   justify-content: center;
 }
 #feedback {
+  font-size: 200%;
   display: none;
   margin: auto;
   position: absolute;
