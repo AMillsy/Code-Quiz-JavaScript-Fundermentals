@@ -22,6 +22,9 @@ let currentQuestion = 0;
 let score = 0;
 let timeout;
 
+const correctSFX = new Audio(`./assets/sfx/correct.wav`);
+const WrongSFX =  new Audio(`./assets/sfx/incorrect.wav`);
+
 //Timer function, start a timer when it hits 0, the game ends
 function startTimer() {
   time--;
@@ -66,9 +69,11 @@ function answerCorrectly(gotCorrect) {
   clearTimeout(timeout);
   showSection(feedbackEl, true);
   if (gotCorrect) {
+    correctSFX.play();
     feedbackEl.style.color = `green`;
     feedbackEl.textContent = `Correct!`;
   } else {
+    WrongSFX.play();
     feedbackEl.style.color = `red`;
     feedbackEl.textContent = `Wrong`;
   }
