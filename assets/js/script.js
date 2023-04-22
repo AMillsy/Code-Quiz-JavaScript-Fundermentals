@@ -164,21 +164,27 @@ choiceEl.addEventListener(`click`, function (e) {
   currentQuestion++;
   addQuestions();
 });
-
 //Submit name and score handler
-submitBtn.addEventListener(`click`, function () {
+
+function addToLocalStorage()
+{
   let name = nameInputEL.value;
   if (!name) {
     errorMessageEl.textContent = `Please enter in your initials`;
+    addToLocalStorage();
   } else {
     errorMessageEl.textContent = ``;
-
+  }
     if(name.length > 4){
       name = name.slice(0,4);
     }
     localStorage.setItem(name, score);
+}
+submitBtn.addEventListener(`click`, function () {
+
+    addToLocalStorage();
     highscoreSection();
-  }
+  
 });
 
 //Showing highscore
@@ -191,4 +197,16 @@ highscoreBtn.addEventListener(`click`, function () {
 returnBtn.addEventListener(`click`, function () {
   showSection(highscoreEl, false);
   showSection(welcomeSect, true);
+});
+
+window.addEventListener(`keydown`,function(e){
+  if(!(e.key === `Enter`))return;
+  if(nameInputEL.value === ``){
+    errorMessageEl.textContent = `Please enter in your initials`
+    return;
+  };
+
+  
+    addToLocalStorage();
+    highscoreSection();
 });
