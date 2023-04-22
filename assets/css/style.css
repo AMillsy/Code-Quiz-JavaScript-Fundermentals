@@ -14,7 +14,9 @@ header {
   justify-content: space-between;
   padding: 2rem;
 }
-
+#timer{
+  font-size: 150%;
+}
 .quiz-container {
   margin-top: 50px;
   width: 50%;
@@ -106,14 +108,14 @@ li {
 label {
   padding-top: 1rem;
 }
-input {
-  margin-top: 1rem;
-}
 
 .submit {
   font-size: 100%;
   margin: 1rem;
 }
+#score{
+  font-size: 150%;
+};
 
 .error-message {
   color: red;
@@ -189,3 +191,9 @@ input {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-colour);
 }
+
+
+.input-container{
+  margin: 10px;
+  font-size:125%;
+};
