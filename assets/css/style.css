@@ -241,4 +241,7 @@ label {
   li {
     font-size: 110%;
   }
+  .return {
+    font-size: 100%;
+  }
 }
