@@ -208,6 +208,7 @@ window.addEventListener(`keydown`, function (e) {
 
 playAgainBtn.addEventListener(`click`, function (e) {
   currentQuestion = 0;
+  timerEl.textContent = `00:00`;
   showSection(highscoreSubmitEl, false);
   showSection(welcomeSect, true);
 });
