@@ -58,7 +58,7 @@ function addQuestions() {
     const question = questions[currentQuestion];
     titleEL.textContent = question.title;
     for (const choice of question.choices) {
-      const questionElement = `<li class="button">${choice}</li>`;
+      const questionElement = `<li class="button question">${choice}</li>`;
       choiceEl.insertAdjacentHTML(`afterbegin`, questionElement);
     }
   }
