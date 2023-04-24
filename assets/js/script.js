@@ -2,6 +2,7 @@ const startBtn = document.querySelector(`.start`);
 const highscoreBtn = document.querySelector(`.highscore-btn`);
 const submitBtn = document.querySelector(`.submit`);
 const returnBtn = document.querySelector(`.return`);
+const playAgainBtn = document.querySelector(`.again`);
 const choiceEl = document.querySelector(`#choices`);
 const welcomeSect = document.querySelector(`#welcome`);
 const questionSect = document.querySelector(`#questions`);
@@ -203,4 +204,10 @@ window.addEventListener(`keydown`, function (e) {
 
   addToLocalStorage();
   highscoreSection();
+});
+
+playAgainBtn.addEventListener(`click`, function (e) {
+  currentQuestion = 0;
+  showSection(highscoreSubmitEl, false);
+  showSection(welcomeSect, true);
 });

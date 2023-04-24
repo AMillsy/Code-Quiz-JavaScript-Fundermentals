@@ -19,7 +19,7 @@ header {
 }
 .quiz-container {
   margin-top: 50px;
-  width: 90%;
+  width: 60%;
   text-align: center;
   height: 500px;
   box-shadow: 5px 5px var(--secondary-colour);
@@ -122,6 +122,9 @@ label {
   color: red;
 }
 
+.again {
+  margin: 2rem;
+}
 /*Highscore section//////////////////////*/
 #highscores {
   position: relative;
@@ -220,6 +223,7 @@ label {
   }
   .quiz-container {
     height: 400px;
+    width: 90%;
   }
   .feedback-container {
     font-size: 80%;
