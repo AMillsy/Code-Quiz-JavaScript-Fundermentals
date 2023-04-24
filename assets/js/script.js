@@ -23,7 +23,7 @@ let score = 0;
 let timeout;
 
 const correctSFX = new Audio(`./assets/sfx/correct.wav`);
-const WrongSFX =  new Audio(`./assets/sfx/incorrect.wav`);
+const WrongSFX = new Audio(`./assets/sfx/incorrect.wav`);
 
 //Timer function, start a timer when it hits 0, the game ends
 function startTimer() {
@@ -85,6 +85,7 @@ function answerCorrectly(gotCorrect) {
 //Shows the submit section and asks the user to put in there initials
 function highscoreSubmitScreen() {
   /**Shows the next screen */
+  timerEl.textContent = setTimerVisuals();
   nameInputEL.value = ``;
   clearInterval(timer);
   score = time;
@@ -150,13 +151,10 @@ startBtn.addEventListener(`click`, function (e) {
 //Question Handler
 choiceEl.addEventListener(`click`, function (e) {
   if (!e.target.matches(`.button`)) return;
-  console.log(e.target);
   questionAns = questions[currentQuestion].answer;
   if (e.target.textContent === questionAns) {
-    console.log(`Question is correct`);
     answerCorrectly(true);
   } else {
-    console.log(`Question is wrong`);
     answerCorrectly(false);
     time -= 15;
   }
@@ -166,8 +164,7 @@ choiceEl.addEventListener(`click`, function (e) {
 });
 //Submit name and score handler
 
-function addToLocalStorage()
-{
+function addToLocalStorage() {
   let name = nameInputEL.value;
   if (!name) {
     errorMessageEl.textContent = `Please enter in your initials`;
@@ -175,16 +172,14 @@ function addToLocalStorage()
   } else {
     errorMessageEl.textContent = ``;
   }
-    if(name.length > 4){
-      name = name.slice(0,4);
-    }
-    localStorage.setItem(name, score);
+  if (name.length > 4) {
+    name = name.slice(0, 4);
+  }
+  localStorage.setItem(name, score);
 }
 submitBtn.addEventListener(`click`, function () {
-
-    addToLocalStorage();
-    highscoreSection();
-  
+  addToLocalStorage();
+  highscoreSection();
 });
 
 //Showing highscore
@@ -199,14 +194,13 @@ returnBtn.addEventListener(`click`, function () {
   showSection(welcomeSect, true);
 });
 
-window.addEventListener(`keydown`,function(e){
-  if(!(e.key === `Enter`))return;
-  if(nameInputEL.value === ``){
-    errorMessageEl.textContent = `Please enter in your initials`
+window.addEventListener(`keydown`, function (e) {
+  if (!(e.key === `Enter`)) return;
+  if (nameInputEL.value === ``) {
+    errorMessageEl.textContent = `Please enter in your initials`;
     return;
-  };
+  }
 
-  
-    addToLocalStorage();
-    highscoreSection();
+  addToLocalStorage();
+  highscoreSection();
 });
